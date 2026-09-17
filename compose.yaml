@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: logistics_hub
+      MYSQL_USER: logistics_user
+      MYSQL_PASSWORD: logistics_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    environment:
+      RABBITMQ_DEFAULT_USER: logistics_user
+      RABBITMQ_DEFAULT_PASS: logistics_password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  redis:
+    image: redis:8-alpine
+    ports:
+      - "6379:6379"
